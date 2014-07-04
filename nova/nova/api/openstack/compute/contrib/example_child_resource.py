@@ -13,9 +13,9 @@ class Controller(object):
     Resource controller doesn't need to extend wsgi.Controller
     """
 
-    # the parameter name "exp_res_id" must "exp_res" registered in ExtensionDescriptor 
+    # the parameter name "exp_res_id" must follow "exp_res" registered in ExtensionDescriptor
     def index(self, req, exp_res_id):
-        """Standard REST method: index. 
+        """Standard REST method: index.
         Mapped to GET: /v2/os-example-resource/{parent_id}/
         """
         return {'data': {
@@ -53,7 +53,7 @@ class Example_child_resource(extensions.ExtensionDescriptor):
         extenion = extensions.ResourceExtension('os-example-child-resource',
                                            controller=Controller(),
                                            parent=dict(                                 # Specify parents here
-                                                collection_name="os-example-resource", 
+                                                collection_name="os-example-resource",
                                                 member_name="exp_res"))
         resources.append(extenion)
         # You can return a list of resources
